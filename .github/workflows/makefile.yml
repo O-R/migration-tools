@@ -8,8 +8,8 @@ on:
     
 env:
   REPO: registry.cn-hangzhou.aliyuncs.com/hungzh
-  USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-  PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+  DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+  DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
 jobs:
   build:
 
