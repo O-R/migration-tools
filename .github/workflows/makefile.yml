@@ -8,6 +8,7 @@ on:
     
 env:
   REPO: registry.cn-hangzhou.aliyuncs.com/hungzh
+  TAG: dev
 jobs:
   build:
 
@@ -16,11 +17,15 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Build the Docker image
+      run: make
+      
     - name: Docker Login
       uses: docker/login-action@v2.2.0
       with:
         registry: ${{ env.REPO }}
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
-    - name: Build the Docker image
-      run: make
+        
+    - name: Docker Push
+      uses: ${{ env.REPO }}/migration-tools:${{ env.TAG }}
