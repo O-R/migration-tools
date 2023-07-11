@@ -21,7 +21,7 @@ cp ../bin/migration-tools .
 IMAGE=${REPO}/migration-tools:${TAG}
 docker build -t ${IMAGE} .
 docker login --help
-echo "${DOCKER_PASSWORD}" | docker login --username="${DOCKER_USERNAME}" --password-stdin "${REPO}"
+docker login --username=${DOCKER_USERNAME} --password=${DOCKER_PASSWORD} --email=hung_z_h@163.com ${REPO}
 docker push ${IMAGE}
 echo ${IMAGE} > ../dist/images
 echo Built ${IMAGE}
