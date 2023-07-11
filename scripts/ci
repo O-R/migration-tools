@@ -3,7 +3,6 @@ set -e
 
 cd $(dirname $0)
 
-echo "uname:${USERNAME}\n repo:${REPO}"
 ./build
 ./test
 ./validate
