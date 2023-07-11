@@ -5,7 +5,11 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-
+    
+env:
+  REPO: registry.cn-hangzhou.aliyuncs.com/hungzh
+  DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+  DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
 jobs:
   build:
 
@@ -15,4 +19,4 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Build the Docker image
-      run: REPO=registry.cn-hangzhou.aliyuncs.com/hungzh make
+      run: make
