@@ -20,6 +20,7 @@ cp ../bin/migration-tools .
 
 IMAGE=${REPO}/migration-tools:${TAG}
 docker build -t ${IMAGE} .
+echo "name:${DOCKERHUB_USERNAME} repo:${REPO}"
 docker login --username=${DOCKERHUB_USERNAME} --password=${DOCKERHUB_PASSWORD} ${REPO} 
 docker push ${IMAGE}
 echo ${IMAGE} > ../dist/images
