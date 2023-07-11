@@ -132,7 +132,8 @@ func exportTool(ctx *cli.Context) error {
 		}
 		composeConfig, err := client.Stack.ActionExportconfig(&item, composeInput)
 		if err != nil {
-			return fmt.Errorf("[ERROR] Getting compose config for stack %s: %v", item.Name, err)
+			log.Errorf("[ERROR] Getting compose config for stack %s: %v", item.Name, err)
+			continue
 		}
 
 		// Create export dir like export-dir/environment/stack
